@@ -1,1 +1,1 @@
-# spectrum-analyzer
+# Spectrum Analyzer

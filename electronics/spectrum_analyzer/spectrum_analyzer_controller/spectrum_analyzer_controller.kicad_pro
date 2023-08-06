@@ -476,7 +476,7 @@
       "netlist": "spectrum_analyzer_controller.net",
       "specctra_dsn": "",
       "step": "spectrum_analyzer_controller.step",
-      "vrml": "spectrum_analyzer_controller.wrl"
+      "vrml": "../../../../../Documents/3dmodels/spectrum_analyzer_controller.wrl"
     },
     "page_layout_descr_file": ""
   },

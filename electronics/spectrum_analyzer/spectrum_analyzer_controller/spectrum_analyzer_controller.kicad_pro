@@ -34,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 1.1,
+          "height": 1.8,
+          "width": 1.8
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -457,7 +457,7 @@
       },
       {
         "netclass": "power line",
-        "pattern": "Net-(SW1-B)"
+        "pattern": "VDC"
       },
       {
         "netclass": "power line",
@@ -475,8 +475,8 @@
       "idf": "",
       "netlist": "spectrum_analyzer_controller.net",
       "specctra_dsn": "",
-      "step": "spectrum_analyzer_controller.step",
-      "vrml": "../../../../../Documents/3dmodels/spectrum_analyzer_controller.wrl"
+      "step": "../../../release/step_files/spectrum_analyzer_controller.step",
+      "vrml": "../../../assets/spectrum_analyzer_controller.wrl"
     },
     "page_layout_descr_file": ""
   },

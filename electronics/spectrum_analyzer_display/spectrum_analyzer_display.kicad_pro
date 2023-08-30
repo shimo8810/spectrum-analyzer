@@ -450,8 +450,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "../../../release/step_files/spectrum_analyzer_display.step",
-      "vrml": "../../../assets/spectrum_analyzer_display.wrl"
+      "step": "../../release/v1.0.0/electronics/3dmodels/spectrum_analyzer_display.step",
+      "vrml": "../../release/v1.0.0/electronics/3dmodels/spectrum_analyzer_display.wrl"
     },
     "page_layout_descr_file": ""
   },

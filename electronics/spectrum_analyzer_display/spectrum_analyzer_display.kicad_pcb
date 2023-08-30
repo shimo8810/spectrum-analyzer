@@ -1726,7 +1726,7 @@
         (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 91839d12-40ec-4ed7-8870-17e242352de8)
     )
-    (fp_text value "Conn_01x10_Pin" (at 0 -25.19) (layer "B.Fab")
+    (fp_text value "Conn_01x10_Pin" (at 15.875 -28.575) (layer "B.Fab")
         (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp dc56a041-db58-46ab-a792-ef9b347addc5)
     )

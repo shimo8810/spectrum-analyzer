@@ -3,11 +3,10 @@
 
 use attiny_hal as hal;
 use embedded_hal::blocking::delay::DelayMs;
+use hal::port::{mode::Output, Pin, PB0, PB1, PB2};
 use panic_halt as _;
 
 pub type Delay = hal::delay::Delay<hal::clock::MHz8>;
-
-use hal::port::{mode::Output, Pin, PB0, PB1, PB2};
 
 pub fn delay_ms(ms: u16) {
     Delay::new().delay_ms(ms);

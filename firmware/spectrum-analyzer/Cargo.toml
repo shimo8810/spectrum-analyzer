@@ -8,6 +8,10 @@ name = "spectrum-analyzer"
 test = false
 bench = false
 
+[lib]
+test = false
+bench = false
+
 [dependencies]
 avr-device = "0.5.2"
 embedded-hal = "0.2.7"

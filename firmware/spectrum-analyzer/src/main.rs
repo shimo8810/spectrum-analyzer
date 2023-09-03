@@ -2,67 +2,17 @@
 #![no_main]
 
 use attiny_hal as hal;
-use embedded_hal::blocking::delay::DelayMs;
-use hal::port::{mode::Output, Pin, PB0, PB1, PB2};
 use panic_halt as _;
 
-pub type Delay = hal::delay::Delay<hal::clock::MHz8>;
-
-pub fn delay_ms(ms: u16) {
-    Delay::new().delay_ms(ms);
-}
-
-struct LedDisplay {
-    data: u32,
-    data_pin: Pin<Output, PB0>,
-    latch_pin: Pin<Output, PB1>,
-    clock_pin: Pin<Output, PB2>,
-}
-
-impl LedDisplay {
-    pub fn new(
-        data_pin: Pin<Output, PB0>,
-        latch_pin: Pin<Output, PB1>,
-        clock_pin: Pin<Output, PB2>,
-    ) -> Self {
-        Self {
-            data: 0,
-            data_pin,
-            latch_pin,
-            clock_pin,
-        }
-    }
-
-    fn shift_out(&mut self, data: u32) {
-        for i in 0..24 {
-            if data & (1 << i) == 0 {
-                self.data_pin.set_low();
-            } else {
-                self.data_pin.set_high();
-            }
-            self.clock_pin.set_high();
-            self.clock_pin.set_low();
-        }
-    }
-
-    fn update_shift_register(&mut self, data: u32) {
-        self.latch_pin.set_low();
-
-        self.shift_out(data);
-
-        self.latch_pin.set_high();
-    }
-    fn update(&mut self) {
-        self.update_shift_register(self.data);
-    }
-}
+use spectrum_analyzer::delay::delay_ms;
+use spectrum_analyzer::led_matrix::LedMatrix;
 
 #[hal::entry]
 fn main() -> ! {
     let dp = hal::Peripherals::take().unwrap();
     let pins: hal::Pins = hal::pins!(dp);
 
-    let mut led = LedDisplay::new(
+    let mut display = LedMatrix::new(
         pins.pb0.into_output(),
         pins.pb1.into_output(),
         pins.pb2.into_output(),
@@ -117,20 +67,22 @@ fn main() -> ! {
         0b00000000_10010011_10000011_00001111, // R6
         0b00000000_10100011_10000011_00001111, // R7
     ];
-    led.update_shift_register(0);
+    // led.update_shift_register(0);
     delay_ms(500);
+
+    // let matrix = [[false; 7]; 20];
 
     loop {
         for _ in 0..100 {
             for &d in &data {
-                led.update_shift_register(d);
-                delay_ms(0);
+                display.update_shift_register(d);
+                delay_ms(5);
             }
         }
         for _ in 0..100 {
             for &d in &data2 {
-                led.update_shift_register(d);
-                delay_ms(0);
+                display.update_shift_register(d);
+                delay_ms(5);
             }
         }
     }

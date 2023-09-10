@@ -1,0 +1,115 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+}
+
+header {
+  background-color: #333;
+  color: gainsboro;
+  text-align: center;
+  padding: 5px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+div.display-panel {
+  margin: auto;
+  margin-top: 20px;
+  background: #202020;
+  border-radius: 30px;
+  width: 544px;
+  height: 366px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table.led-matrix {
+  border-spacing: 30px 5px;
+  margin: auto;
+}
+
+td.led {
+  border: none;
+  padding: 5.8px 17px;
+  cursor: pointer;
+}
+
+td.led-off {
+  background: dimgray;
+}
+
+td.led-red {
+  background: tomato;
+}
+
+td.led-green {
+  background: lime;
+}
+td.led-yellow {
+  background: yellow;
+}
+
+
+div.codeblock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
+
+
+}
+
+code {
+  counter-reset: line-number;
+  font-family: Monaco, Consolas, "Courier New", monospace;
+  font-size: 16px;
+  color: whitesmoke;
+  background-color: #333;
+  border: 3px solid black;
+  margin-top: 30px;
+}
+
+code span {
+  counter-increment: line-number;
+  display: list-item;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  background-color: #333;
+  width: 544px;
+}
+
+code span::marker {
+  content: counter(line-number);
+  color: #aaa;
+}
+
+
+button.copy-button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 544px;
+}
+
+footer {
+  background-color: #333;
+  color: lightgray;
+  text-align: center;
+  font-size:smaller;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 5px 0px;
+}
